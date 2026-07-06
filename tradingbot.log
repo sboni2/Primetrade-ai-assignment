@@ -1,0 +1,5 @@
+2025-05-25 08:38:18,637 - INFO - Initialized Binance Client (Testnet: True)
+2025-05-25 08:52:11,356 - INFO - Initialized Binance Client (Testnet: True)
+2025-05-25 08:52:11,357 - INFO - Placing MARKET order: BUY 2.0 BTCUSDT
+2025-05-25 08:52:12,213 - INFO - Order response: {'orderId': 4458562911, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ82e8fd1a6e4d45af0091b6', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '2.000', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1748143332153}
+2026-07-06 13:15:33,491 - INFO - Initialized Binance Client (Testnet: True)

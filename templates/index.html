@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binance Futures Testnet Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Binance Futures Testnet Trading Bot</h1>
+    <form action="/place_order" method="post">
+        <label for="api_key">API Key:</label><br>
+        <input type="text" id="api_key" name="api_key" required><br><br>
+
+        <label for="api_secret">API Secret:</label><br>
+        <input type="password" id="api_secret" name="api_secret" required><br><br>
+
+        <label for="symbol">Symbol (e.g., BTCUSDT):</label><br>
+        <input type="text" id="symbol" name="symbol" required><br><br>
+
+        <label for="side">Side (BUY/SELL):</label><br>
+        <select id="side" name="side" required>
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+        </select><br><br>
+
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" step="any" required><br><br>
+
+        <label for="order_type">Order Type:</label><br>
+        <select id="order_type" name="order_type" required>
+            <option value="MARKET">Market</option>
+            <option value="LIMIT">Limit</option>
+            <option value="STOP_LIMIT">Stop-Limit</option>
+        </select><br><br>
+
+        <div id="price_fields">
+            <label for="price">Limit Price:</label><br>
+            <input type="number" id="price" name="price" step="any"><br><br>
+        </div>
+
+        <div id="stop_price_field" style="display:none;">
+            <label for="stop_price">Stop Price:</label><br>
+            <input type="number" id="stop_price" name="stop_price" step="any"><br><br>
+        </div>
+
+        <input type="submit" value="Place Order">
+    </form>
+
+    <script>
+        const orderTypeSelect = document.getElementById('order_type');
+        const priceFields = document.getElementById('price_fields');
+        const stopPriceField = document.getElementById('stop_price_field');
+        const priceInput = document.getElementById('price');
+        const stopPriceInput = document.getElementById('stop_price');
+
+        orderTypeSelect.addEventListener('change', function() {
+            if (this.value === 'LIMIT') {
+                priceFields.style.display = 'block';
+                stopPriceField.style.display = 'none';
+                priceInput.required = true;
+                stopPriceInput.required = false;
+            } else if (this.value === 'STOP_LIMIT') {
+                priceFields.style.display = 'block';
+                stopPriceField.style.display = 'block';
+                priceInput.required = true;
+                stopPriceInput.required = true;
+            } else {
+                priceFields.style.display = 'none';
+                stopPriceField.style.display = 'none';
+                priceInput.required = false;
+                stopPriceInput.required = false;
+            }
+        });
+
+        // Initial state based on default selected option
+        if (orderTypeSelect.value === 'MARKET') {
+             priceInput.required = false;
+             stopPriceInput.required = false;
+        }
+
+    </script>
+
+</body>
+</html> 

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="result-container">
+        <h1>Order Placement Result</h1>
+        <p>{{ message }}</p>
+        <pre>{{ details }}</pre>
+        <p><a href="/">Place another order</a></p>
+    </div>
+</body>
+</html> 
